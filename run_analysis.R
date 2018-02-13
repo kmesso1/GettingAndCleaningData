@@ -70,8 +70,6 @@ names(clean.data) <- data.labels
 
 
 #### Q5. Create an Independent, Tidy Dataset with Average of Each Var, for Each Activity and Subject ####
-
-
 avg.data <- clean.data %>%
               group_by(Subject, Activity_Name) %>%
               select(-activity) %>% 
