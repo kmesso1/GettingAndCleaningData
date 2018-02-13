@@ -12,7 +12,7 @@ features <- read.table('./UCI HAR Dataset/features.txt')
 features <- as.character(features[,2])
 
 activity.labels <- read.table('./UCI HAR Dataset/activity_labels.txt', header = FALSE, sep = ' ')
-names(activity.labels) <- c('activity', 'activity_name')
+names(activity.labels) <- c('activity', 'Activity_Name')
 
 train.x <- read.table('./UCI HAR Dataset/train/X_train.txt')
 train.activity <- read.table('./UCI HAR Dataset/train/y_train.txt')
@@ -62,14 +62,21 @@ data.labels <- gsub("-mean-", "_Mean_", data.labels)
 data.labels <- gsub("-mean", "_Mean", data.labels)
 data.labels <- gsub("-std-", "_StdDev_", data.labels)
 data.labels <- gsub("-std", "_StdDev", data.labels)
+data.labels <- gsub("BodyBody", "Body", data.labels)
+data.labels <- gsub("Jerk", "_Jerk", data.labels)
 data.labels <- gsub("-", "_", data.labels)
+data.labels <- gsub("subject", "Subject", data.labels)
 names(clean.data) <- data.labels
 
 
 #### Q5. Create an Independent, Tidy Dataset with Average of Each Var, for Each Activity and Subject ####
+
+
 avg.data <- clean.data %>%
-              group_by(subject, activity_name) %>%
+              group_by(Subject, Activity_Name) %>%
               select(-activity) %>% 
               summarize_all(funs(mean))
 
 
+#### Output Dataset to Working Directory ####
+write.table(avg.data, "Tidy Data for Human Activity Recognition Using Smartphones.txt", sep="\t")
