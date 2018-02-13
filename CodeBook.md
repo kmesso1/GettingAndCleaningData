@@ -12,15 +12,24 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 * Changed the variable names to be more readable
 * Calculated the average of each feature left in the subsetted data, grouping by "Activity_Name" and "Subject"
 
-
 ## Variable Descriptions
-### Key Columns in the Output Data 
+### Key Variables in the Output Data 
 | Variable Name | Description                          |
 | ------------- |:-------------------------------------|
 | Subject       | ID of subject                        |
 | Activity_Name | Activity Label, Factor with 6 Levels |
 
-### Other Columns in the Output Data
+### Feature Descriptions used in Variable Descriptions
+| Feature  | Description                         |
+| ------------- |:-------------------------------------|
+| Time or Frequency | Domain measurement
+| Body or Gracity | Source signal of movement
+| Accelerometer or Gyroscope | Measure of acceleration and velocity, respectively
+| Jerk | Jerk signal
+| Magnitude | Magnitude of the signal
+| X, Y, or Y | Axis from triaxial acceleration or velocity
+
+### Other Variables in the Output Data
 | Variable Name | Description                          |
 | ------------- |:-------------------------------------|
 | Time_Body_Accelerometer_Mean_X               | The average of this feature, grouped by Subject and Activity_Name, with range -1 to 1 |
@@ -89,13 +98,3 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 | Freq_Body_Gyroscope_Magnitude_StdDev         | The average of this feature, grouped by Subject and Activity_Name, with range -1 to 1 |
 | Freq_Body_Gyroscope_Jerk_Magnitude_Mean      | The average of this feature, grouped by Subject and Activity_Name, with range -1 to 1 |
 | Freq_Body_Gyroscope_Jerk_Magnitude_StdDev    | The average of this feature, grouped by Subject and Activity_Name, with range -1 to 1 |
-
-## Feature Descriptions
-| Feature  | Description                         |
-| ------------- |:-------------------------------------|
-| Time or Frequency | Domain measurement
-| Body or Gracity | Source signal of movement
-| Accelerometer or Gyroscope | Measure of acceleration and velocity, respectively
-| Jerk | Jerk signal
-| Magnitude | Magnitude of the signal
-| X, Y, or Y | Axis from triaxial acceleration or velocity
