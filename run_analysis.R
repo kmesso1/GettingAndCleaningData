@@ -77,4 +77,4 @@ avg.data <- clean.data %>%
 
 
 #### Output Dataset to Working Directory ####
-write.table(avg.data, "Tidy Data for Human Activity Recognition Using Smartphones.txt", sep="\t")
+write.table(avg.data, "Tidy Data for Human Activity Recognition Using Smartphones.txt", sep="\t", row.names = FALSE)
