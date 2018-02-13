@@ -11,22 +11,22 @@ unzip("UCI HAR Dataset.zip", exdir = getwd())
 features <- read.table('./UCI HAR Dataset/features.txt')
 features <- as.character(features[,2])
 
-activity.labels <- read.table('./UCI HAR Dataset/activity_labels.txt', header = FALSE, sep = ' ')
-names(activity.labels) <- c('activity', 'Activity_Name')
+activity.labels <- read.table('./UCI HAR Dataset/activity_labels.txt')
+names(activity.labels) <- c('activity', 'Activity_Name') #rename variables
 
 train.x <- read.table('./UCI HAR Dataset/train/X_train.txt')
 train.activity <- read.table('./UCI HAR Dataset/train/y_train.txt')
 train.subject <- read.table('./UCI HAR Dataset/train/subject_train.txt')
 
-train <- cbind(train.subject, train.activity, train.x)
-names(train) <- c(c('subject', 'activity'), features)
+train <- cbind(train.subject, train.activity, train.x) #merge data together
+names(train) <- c(c('subject', 'activity'), features) #rename variables
 
 test.x <- read.table('./UCI HAR Dataset/test/X_test.txt')
 test.activity <- read.table('./UCI HAR Dataset/test/y_test.txt')
 test.subject <- read.table('./UCI HAR Dataset/test/subject_test.txt')
 
-test <-  cbind(test.subject, test.activity, test.x)
-names(test) <- c(c('subject', 'activity'), features)
+test <-  cbind(test.subject, test.activity, test.x) #merge data together
+names(test) <- c(c('subject', 'activity'), features) #rename variables
 
 
 # --------------------------------------------------------------------#
@@ -39,8 +39,8 @@ full.data <- rbind(train,test)
 
 
 #### Q2. Extract only Measurements on the Mean and Std Dev ####
-mean.std.cols <- grep('(mean|std)\\(\\)', colnames(full.data))
-subset.data <- full.data[,c(1,2,mean.std.cols)]
+mean.std.cols <- grep('(mean|std)\\(\\)', colnames(full.data)) #gives a list of columns with these criteria
+subset.data <- full.data[,c(1,2,mean.std.cols)] #subsets to the above list of columns
 
 
 #### Q3. Descriptive Activity Names in the Dataset ####
