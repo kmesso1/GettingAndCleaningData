@@ -27,7 +27,7 @@ You should create one R script called run_analysis.R that does the following:
 * Imports the original data and unzips it
 * Merges the train and test data on "activity"
 * Subsets the merged data to only contain features with mean and standard deviation
-* Joins "Activity_Name" to the data and dropped "activity" because it is redundant
+* Joins "Activity_Name" to the data and drops "activity" because it is redundant
 * Changes the variable names to be more readable
 * Calculates the average of each feature left in the subsetted data, grouping by "Activity_Name" and "Subject"
 * Outputs a tidy text file to the working directory
